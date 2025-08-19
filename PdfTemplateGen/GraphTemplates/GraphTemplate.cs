@@ -4,6 +4,7 @@ public abstract class GraphTemplate
 {
     protected abstract TRectangle GraphArea { get; set; }
     protected abstract TGraphData GraphData { get; set; }
+    protected abstract GraphSettings Settings { get; set; }
 
     internal abstract TGraphData FillItems();
 
