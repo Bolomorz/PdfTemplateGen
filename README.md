@@ -1,3 +1,3 @@
-pdf template generator based of c#-framework pdf-sharp
+pdf template generator based on c#-framework pdf-sharp
 
 !!Work in Progress!!
