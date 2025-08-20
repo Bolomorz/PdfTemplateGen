@@ -29,7 +29,7 @@ internal class ExampleTemplate : GraphTemplate
         ObjectToDisplay = objectToDisplay;
     }
 
-    internal override TGraphData FillItems()
+    public override TGraphData FillItems()
     {
         /*
         => fill GraphData.ItemCollections with items according to ObjectToDisplay here

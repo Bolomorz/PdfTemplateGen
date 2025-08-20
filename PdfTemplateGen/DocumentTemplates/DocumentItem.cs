@@ -9,7 +9,7 @@ namespace PdfTemplateGen.DocumentTemplates;
 public class DocumentItem
 {
     private PdfDocument Document;
-    private DocumentSettings Settings;
+    public DocumentSettings Settings { get; private set; }
     private List<PdfPage> Pages;
     private List<XGraphics> Gfxs;
     private int Index;

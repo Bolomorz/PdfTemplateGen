@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfTemplateGen", "PdfTemplateGen\PdfTemplateGen.csproj", "{FE3F28B1-A814-48F4-AF05-1A11F2FCE499}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfTemplateGenExample", "PdfTemplateGenExample\PdfTemplateGenExample.csproj", "{BDFE11A0-3614-45FB-A768-76B3128C2221}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{FE3F28B1-A814-48F4-AF05-1A11F2FCE499}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE3F28B1-A814-48F4-AF05-1A11F2FCE499}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE3F28B1-A814-48F4-AF05-1A11F2FCE499}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDFE11A0-3614-45FB-A768-76B3128C2221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDFE11A0-3614-45FB-A768-76B3128C2221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDFE11A0-3614-45FB-A768-76B3128C2221}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDFE11A0-3614-45FB-A768-76B3128C2221}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

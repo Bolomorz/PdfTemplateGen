@@ -8,8 +8,8 @@ public class PdfFile
 {
     public required bool Success { get; set; }
     internal byte[]? Data { get; set; }
-    private const string FilePathLinux = "Resources/Temp.pdf";
-    private const string FilePathWindows = @"Resources\Temp.pdf";
+    private const string FilePathLinux = "Temp.pdf";
+    private const string FilePathWindows = @"Temp.pdf";
 
     public void OpenDocument(string? filepath)
     {

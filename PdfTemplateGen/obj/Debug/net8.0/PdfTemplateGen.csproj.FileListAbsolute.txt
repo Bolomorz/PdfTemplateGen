@@ -1,0 +1,13 @@
+/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/bin/Debug/net8.0/PdfTemplateGen.deps.json
+/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/bin/Debug/net8.0/PdfTemplateGen.dll
+/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/bin/Debug/net8.0/PdfTemplateGen.pdb
+/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/obj/Debug/net8.0/PdfTemplateGen.csproj.AssemblyReference.cache
+/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/obj/Debug/net8.0/PdfTemplateGen.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/obj/Debug/net8.0/PdfTemplateGen.AssemblyInfoInputs.cache
+/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/obj/Debug/net8.0/PdfTemplateGen.AssemblyInfo.cs
+/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/obj/Debug/net8.0/PdfTemplateGen.csproj.CoreCompileInputs.cache
+/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/obj/Debug/net8.0/PdfTemplateGen.sourcelink.json
+/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/obj/Debug/net8.0/PdfTemplateGen.dll
+/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/obj/Debug/net8.0/refint/PdfTemplateGen.dll
+/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/obj/Debug/net8.0/PdfTemplateGen.pdb
+/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/obj/Debug/net8.0/ref/PdfTemplateGen.dll

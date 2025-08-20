@@ -1,0 +1,124 @@
+{
+  "format": 1,
+  "restore": {
+    "/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGenExample/PdfTemplateGenExample.csproj": {}
+  },
+  "projects": {
+    "/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/PdfTemplateGen.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/PdfTemplateGen.csproj",
+        "projectName": "PdfTemplateGen",
+        "projectPath": "/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/PdfTemplateGen.csproj",
+        "packagesPath": "/home/bolomorz/.nuget/packages/",
+        "outputPath": "/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/bolomorz/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "PDFsharp": {
+              "target": "Package",
+              "version": "[6.2.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.119/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGenExample/PdfTemplateGenExample.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGenExample/PdfTemplateGenExample.csproj",
+        "projectName": "PdfTemplateGenExample",
+        "projectPath": "/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGenExample/PdfTemplateGenExample.csproj",
+        "packagesPath": "/home/bolomorz/.nuget/packages/",
+        "outputPath": "/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGenExample/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/bolomorz/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/PdfTemplateGen.csproj": {
+                "projectPath": "/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/PdfTemplateGen.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.119/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

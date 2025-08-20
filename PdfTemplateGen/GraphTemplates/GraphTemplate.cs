@@ -6,7 +6,7 @@ public abstract class GraphTemplate
     protected abstract TGraphData GraphData { get; set; }
     protected abstract GraphSettings Settings { get; set; }
 
-    internal abstract TGraphData FillItems();
+    public abstract TGraphData FillItems();
 
     /// <summary>
     /// translate a point relative to series to a point relative to position on graph
