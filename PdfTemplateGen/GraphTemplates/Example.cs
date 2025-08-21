@@ -34,6 +34,14 @@ internal class ExampleTemplate : GraphTemplate
         /*
         => fill GraphData.ItemCollections with items according to ObjectToDisplay here
         */
+        GraphData.Points.Add(new()
+        {
+            VerticalPosition = 50,
+            HorizontalPosition = 50,
+            Radius = 5,
+            Pen = XPens.Black,
+            Brush = XBrushes.Black
+        });
 
         return GraphData;
     }

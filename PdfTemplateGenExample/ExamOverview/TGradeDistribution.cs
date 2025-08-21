@@ -103,9 +103,9 @@ internal class TGradeDistribution : GraphTemplate
         /// calc dimensions for x-interval
         /// width-interval are known, as there are 6 Grades, each with the same distance
         var totalWidth = GraphArea.HorizontalEnd - GraphArea.HorizontalStart;
-        var intervalWidth = totalWidth / (info.Distributions.Length + 1);
+        var intervalWidth = totalWidth / (info.Distributions.Length + 1);       /// increment in horizontal direction
 
-        var horizontalPosition = Settings.AxisAreaLength + intervalWidth;
+        var horizontalPosition = Settings.AxisAreaLength + intervalWidth;       /// horizontal startposition
 
         /// because the magnitude of y-values is unknown (anything between [0, 100]), the y-value of each distribution has to be translated/calculated
         #endregion
@@ -116,22 +116,22 @@ internal class TGradeDistribution : GraphTemplate
             /// translate (i, percenti) to chartpoint
             var percent = (info.Distributions[i].Amount / info.AmountTotal) * 100;
             var point = TranslateSeriesPointToChartPoint(
-                percent,
-                i + 1,
+                percent,                            /// | y-value
+                i + 1,                              /// | x-value
 
-                0,
-                100,
-                VerticalDirection.FromBotToTop,
+                0,                                  /// |
+                100,                                /// | y-axis | from 0 to 100 | with direction from bottom towards top
+                VerticalDirection.FromBotToTop,     /// |
 
-                0,
-                7,
-                HorizontalDirection.FromLeftToRight
+                0,                                  /// | 
+                (info.Distributions.Length + 1),    /// | x-axis | from 0 to 7 | with direction from left towards right
+                HorizontalDirection.FromLeftToRight /// |
             );
 
             /// add bar graph according to magnitude of y-value
             if (point is not null)
             {
-                GraphData.Texts.Add(new()
+                GraphData.Texts.Add(new()           /// y-value in percent
                 {
                     VerticalPosition = point.Value.VerticalPosition,
                     HorizontalPosition = horizontalPosition,
@@ -141,7 +141,7 @@ internal class TGradeDistribution : GraphTemplate
                     Rotate = null
                 });
 
-                GraphData.Rectangles.Add(new()
+                GraphData.Rectangles.Add(new()      /// bar graph 
                 {
                     VerticalStart = point.Value.VerticalPosition,
                     VerticalEnd = GraphArea.VerticalEnd,
@@ -151,7 +151,7 @@ internal class TGradeDistribution : GraphTemplate
                     Brush = XBrushes.LightGreen
                 });
 
-                GraphData.Texts.Add(new()
+                GraphData.Texts.Add(new()           /// x-axis description | grade value
                 {
                     VerticalPosition = GraphArea.VerticalEnd + Settings.AxisAreaLength / 2,
                     HorizontalPosition = horizontalPosition,

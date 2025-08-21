@@ -1,5 +1,3 @@
-using Microsoft.VisualBasic;
-
 namespace PdfTemplateGenExample.ExamOverview;
 
 internal class Exam
