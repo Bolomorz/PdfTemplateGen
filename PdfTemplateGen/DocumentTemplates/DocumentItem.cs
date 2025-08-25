@@ -54,7 +54,7 @@ public class DocumentItem
     }
     internal FileType GetCurrentType() => Type;
     internal PdfPage GetCurrentPage() => Pages[Index];
-    internal XGraphics GetCurrentXGraphics() => Gfxs[Index];
+    public XGraphics GetCurrentXGraphics() => Gfxs[Index];
     internal byte[]? GetFile()
     {
         byte[]? pdf = null;

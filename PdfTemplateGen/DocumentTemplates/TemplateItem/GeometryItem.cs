@@ -494,13 +494,13 @@ public class GeometryItem : ITemplateItem
         switch (Type)
         {
             case GeometryType.Arc: return Height;
-            case GeometryType.Bezier: foreach (var p in Points) if (p.VerticalPosition > max) max = p.VerticalPosition; return max;
-            case GeometryType.ClosedCurve: foreach (var p in Points) if (p.VerticalPosition > max) max = p.VerticalPosition; return max;
-            case GeometryType.Curve: foreach (var p in Points) if (p.VerticalPosition > max) max = p.VerticalPosition; return max;
+            case GeometryType.Bezier: foreach (var p in Points) {if (p.VerticalPosition > max) max = p.VerticalPosition;} return max;
+            case GeometryType.ClosedCurve: foreach (var p in Points) {if (p.VerticalPosition > max) max = p.VerticalPosition;} return max;
+            case GeometryType.Curve: foreach (var p in Points) {if (p.VerticalPosition > max) max = p.VerticalPosition;} return max;
             case GeometryType.Ellipse: return Height;
-            case GeometryType.Line: foreach (var p in Points) if (p.VerticalPosition > max) max = p.VerticalPosition; return max;
+            case GeometryType.Line: foreach (var p in Points) {if (p.VerticalPosition > max) max = p.VerticalPosition;} return max;
             case GeometryType.Pie: return Height;
-            case GeometryType.Polygon: foreach (var p in Points) if (p.VerticalPosition > max) max = p.VerticalPosition; return max;
+            case GeometryType.Polygon: foreach (var p in Points) {if (p.VerticalPosition > max) max = p.VerticalPosition;} return max;
             case GeometryType.Rectangle: return Height;
             case GeometryType.RoundedRectangle: return Height;
             default: return 0;
@@ -512,13 +512,13 @@ public class GeometryItem : ITemplateItem
         switch (Type)
         {
             case GeometryType.Arc: return Width;
-            case GeometryType.Bezier: foreach (var p in Points) if (p.HorizontalPosition > max) max = p.HorizontalPosition; return max;
-            case GeometryType.ClosedCurve: foreach (var p in Points) if (p.HorizontalPosition > max) max = p.HorizontalPosition; return max;
-            case GeometryType.Curve: foreach (var p in Points) if (p.HorizontalPosition > max) max = p.HorizontalPosition; return max;
+            case GeometryType.Bezier: foreach (var p in Points) {if (p.HorizontalPosition > max) max = p.HorizontalPosition;} return max;
+            case GeometryType.ClosedCurve: foreach (var p in Points) {if (p.HorizontalPosition > max) max = p.HorizontalPosition;} return max;
+            case GeometryType.Curve: foreach (var p in Points) {if (p.HorizontalPosition > max) max = p.HorizontalPosition;} return max;
             case GeometryType.Ellipse: return Width;
-            case GeometryType.Line: foreach (var p in Points) if (p.HorizontalPosition > max) max = p.HorizontalPosition; return max;
+            case GeometryType.Line: foreach (var p in Points) {if (p.HorizontalPosition > max) max = p.HorizontalPosition;} return max;
             case GeometryType.Pie: return Width;
-            case GeometryType.Polygon: foreach (var p in Points) if (p.HorizontalPosition > max) max = p.HorizontalPosition; return max;
+            case GeometryType.Polygon: foreach (var p in Points) {if (p.HorizontalPosition > max) max = p.HorizontalPosition;} return max;
             case GeometryType.Rectangle: return Width;
             case GeometryType.RoundedRectangle: return Width;
             default: return 0;

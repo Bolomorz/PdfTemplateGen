@@ -29,7 +29,14 @@ internal static class ExamOverviewExample
             new(){ Pupil = $"Pupil{i++}", Points = 78},
             new(){ Pupil = $"Pupil{i++}", Points = 73},
             new(){ Pupil = $"Pupil{i++}", Points = 59},
-            new(){ Pupil = $"Pupil{i++}", Points = 20}
+            new(){ Pupil = $"Pupil{i++}", Points = 20},
+            new(){ Pupil = $"Pupil{i++}", Points = 56},
+            new(){ Pupil = $"Pupil{i++}", Points = 56},
+            new(){ Pupil = $"Pupil{i++}", Points = 56},
+            new(){ Pupil = $"Pupil{i++}", Points = 56},
+            new(){ Pupil = $"Pupil{i++}", Points = 56},
+            new(){ Pupil = $"Pupil{i++}", Points = 56},
+            new(){ Pupil = $"Pupil{i++}", Points = 56}
         ];
 
         var file = DocumentWriter.Write(new TExamOverview(exam, grades));

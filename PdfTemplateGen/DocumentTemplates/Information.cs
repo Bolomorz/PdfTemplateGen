@@ -9,9 +9,9 @@ public class DocumentInformation
     internal double VerticalEnd { get; set; }
     internal double HorizontalStart { get; set; }
     internal double HorizontalEnd { get; set; }
-    internal List<XBrush> Brushes { get; set; }
-    internal List<XFont> Fonts { get; set; }
-    internal List<XPen> Pens { get; set; }
+    public List<XBrush> Brushes { get; set; }
+    public List<XFont> Fonts { get; set; }
+    public List<XPen> Pens { get; set; }
 
     public DocumentInformation(
         double verticalStart,

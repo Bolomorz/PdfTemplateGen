@@ -64,7 +64,7 @@ public class TemplateItemCollection
         var newpage = AdjustNewPage(doc, drawinfo);
         foreach(var item in Items) item.Draw(doc, DrawInfo);
 
-        if(IsDynamic()) drawinfo.LastVerticalPosition += DistanceTop + DrawInfo.NeededHeight;
+        if(IsDynamic()) drawinfo.LastVerticalPosition += newpage ? DrawInfo.NeededHeight : DistanceTop + DrawInfo.NeededHeight;
 
         return newpage;
     }
