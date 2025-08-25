@@ -5,7 +5,7 @@ public static class Extensions
     public static int RoundToNextTen(double[] numbers)
     {
         var max = FindMax(numbers);
-        return (int)(Math.Round(max / 10.0) * 10.0);
+        return (int)(Math.Ceiling(max / 10.0) * 10.0);
     }
 
     private static double FindMax(double[] numbers)
