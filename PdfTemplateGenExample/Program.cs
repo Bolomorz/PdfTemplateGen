@@ -1,8 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using PdfTemplateGenExample.ExamOverview;
-using PdfSharp.Fonts;
-using PdfSharp.Snippets.Font;
 
-GlobalFontSettings.FontResolver = new FailsafeFontResolver();
+PdfSharp.Fonts.GlobalFontSettings.FontResolver = new PdfSharp.Snippets.Font.FailsafeFontResolver();
 
 ExamOverviewExample.Print();
