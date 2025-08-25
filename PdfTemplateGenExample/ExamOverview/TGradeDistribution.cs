@@ -12,10 +12,10 @@ internal class TGradeDistribution : GraphTemplate
     protected override TGraphData GraphData { get; set; }
     protected override GraphSettings Settings { get; set; }
 
-    private Exam Exam;
-    private List<Grade> Grades;
+    private readonly Exam Exam;
+    private readonly List<Grade> Grades;
 
-    private XFont ChartFont = new("Arial", 8);
+    private readonly XFont ChartFont = new("Arial", 8);
 
     /// <summary>
     /// graph-template depicting a grade distribution of exam as bar graph
@@ -107,13 +107,13 @@ internal class TGradeDistribution : GraphTemplate
 
         var horizontalPosition = Settings.AxisAreaLength + intervalWidth;       /// horizontal startposition
 
-        /// because the magnitude of y-values is unknown (anything between [0, 100]), the y-value of each distribution has to be translated/calculated
+        /// because the magnitudes of y-values is unknown (anything between [0, 100]), the y-value of each distribution has to be translated/calculated
         #endregion
 
         #region bar graph
         for (int i = 0; i < info.Distributions.Length; i++)
         {
-            /// translate (i, percenti) to chartpoint
+            /// translate (i, percenti) to chartpoint | calculate magnitude of y-value
             var percent = (info.Distributions[i].Amount / info.AmountTotal) * 100;
             var point = TranslateSeriesPointToChartPoint(
                 percent,                            /// | y-value

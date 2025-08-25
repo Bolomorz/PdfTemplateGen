@@ -5,22 +5,44 @@ using PdfTemplateGen;
 
 namespace PdfTemplateGenExample.ExamOverview;
 
+/// <summary>
+/// overview of an exam:
+/// <para>- info about exam</para>
+/// <para>- grades as table</para>
+/// <para>- grade distribution as bar graph</para>
+/// <para>- grade distribution as table</para>
+/// </summary>
 internal class TExamOverview : DocumentTemplate
 {
     protected override DocumentItem Document { get; set; }
     protected override DocumentInformation Information { get; set; }
     protected override List<TemplateItemCollection> Items { get; set; }
 
-    private Exam Exam;
-    private List<Grade> Grades;
+    private readonly Exam Exam;
+    private readonly List<Grade> Grades;
 
-    internal TExamOverview(Exam exam, List<Grade> grades)
+    /// <summary>
+    /// overview of an exam:
+    /// <para>- info about exam</para>
+    /// <para>- grades as table</para>
+    /// <para>- grade distribution as bar graph</para>
+    /// <para>- grade distribution as table</para>
+    /// </summary>
+    /// <param name="exam">exam description</param>
+    /// <param name="grades">grades of exam</param>
+    internal TExamOverview(
+        Exam exam,
+        List<Grade> grades
+    )
     {
         Document = new(
             "ExamOverview",
             FileType.Document,
             PdfSharp.PageOrientation.Portrait,
-            new() { A4PortraitSettings = new(), A4LandscapeSettings = new() },
+            new(){
+                A4PortraitSettings = new(),
+                A4LandscapeSettings = new()
+            },
             null
         );
 
@@ -45,6 +67,8 @@ internal class TExamOverview : DocumentTemplate
         var info = Exam.GetExamInfo(Grades);
 
         #region header
+        /// add header 'ExamOverview' on top of document
+        /// first dynamic item of document
         var headerItem = new TemplateItemCollection(ItemMode.Dynamic, 0, 0, 0);
 
         headerItem.AddItem(new StringItem()
@@ -64,15 +88,18 @@ internal class TExamOverview : DocumentTemplate
         #endregion
 
         #region info
+        /// add info box about exam
+        /// distance to header is 20 pt
         var infoItem = new TemplateItemCollection(ItemMode.Dynamic, 0, 0, 20);
 
         var infoh1 = 10; var infoh2 = 80; var infoh3 = 200; var infoh4 = 270;
         var nextv = 0;
 
+        /// add description and date
         infoItem.AddItem(new StringItem()
         {
             Mode = ItemMode.Static,
-            Content = "Name:",
+            Content = "Description:",
             DistanceLeft = infoh1,
             DistanceTop = nextv,
             MaxWidth = 50,
@@ -118,6 +145,7 @@ internal class TExamOverview : DocumentTemplate
             Underline = false
         });
 
+        /// calculate height of description and date
         nextv += Extensions.RoundToNextTen(
         [
             new TextMeasurements(
@@ -137,8 +165,10 @@ internal class TExamOverview : DocumentTemplate
                     new XPoint(110, 800)
             )).MeasureText(),
         ]);
+        /// add another 10 pt as distance
         nextv += 10;
 
+        /// add subject and calculate average grade
         infoItem.AddItem(new StringItem()
         {
             Mode = ItemMode.Static,
@@ -188,6 +218,7 @@ internal class TExamOverview : DocumentTemplate
             Underline = false
         });
 
+        /// calculate height of subject and average grade
         nextv += Extensions.RoundToNextTen(
         [
             new TextMeasurements(
@@ -207,8 +238,10 @@ internal class TExamOverview : DocumentTemplate
                     new XPoint(110, 800)
             )).MeasureText(),
         ]);
+        /// add another 10 pt as distance
         nextv += 10;
 
+        /// add total points
         infoItem.AddItem(new StringItem()
         {
             Mode = ItemMode.Static,
@@ -238,9 +271,13 @@ internal class TExamOverview : DocumentTemplate
         #endregion
 
         #region overview
+        /// add overview of exam as table
+        /// distance to info box is 50 pt
         var overviewItem = new TemplateItemCollection(ItemMode.Dynamic, 0, 0, 50);
+        /// set table width of cells
         var overviewh1 = 10; var overviewh2 = 160; var overviewh3 = 310; var overviewh4 = 460;
 
+        /// add table header | cell values and cell borders
         overviewItem.AddItem(new StringItem()
         {
             Mode = ItemMode.Static,
@@ -308,8 +345,10 @@ internal class TExamOverview : DocumentTemplate
 
         foreach (var grade in Grades)
         {
+            /// add table row
             var gradeItem = new TemplateItemCollection(ItemMode.Dynamic, 0, 0, 0);
 
+            /// calculate height of each cell
             nextv = Extensions.RoundToNextTen(
             [
                 new TextMeasurements(
@@ -337,8 +376,10 @@ internal class TExamOverview : DocumentTemplate
                         new XPoint(130, 800)
                 )).MeasureText()
             ]);
+            /// add another 10 pt as distance
             nextv += 10;
 
+            /// add table cell values
             gradeItem.AddItem(new StringItem()
             {
                 Mode = ItemMode.Static,
@@ -375,6 +416,7 @@ internal class TExamOverview : DocumentTemplate
                 PenIndex = 0,
                 Underline = false
             });
+            /// add layout of table | cell borders
             gradeItem.AddItem(GeometryHelper.Line(
                 ItemMode.Static,
                 [
@@ -408,11 +450,15 @@ internal class TExamOverview : DocumentTemplate
         #endregion
 
         #region graph
+        /// add grade distribution as bar graph
+        /// distance to overview table is 50 pt
         var graphItem = new TemplateItemCollection(ItemMode.Dynamic, 0, 0, 50);
+        /// get bar graph
         var data = GraphWriter.Write(new TGradeDistribution(0, 0, 200, 450, Exam, Grades));
 
         if (data is not null)
         {
+            /// add bar graph | use same width and height values as calculated bar graph [200|450]
             graphItem.AddItem(new GraphItem()
             {
                 Mode = ItemMode.Static,
@@ -427,10 +473,15 @@ internal class TExamOverview : DocumentTemplate
         #endregion
 
         #region distribution
+        /// add grade distribution as table
+        /// distance to bar graph is 50 pt
         var distributionItem = new TemplateItemCollection(ItemMode.Dynamic, 0, 0, 50);
+        /// set width of cells
         var distributionh1 = 10; var distributionh2 = 60; var distributionh3 = 410; var distributionh4 = 460;
+        /// set distance to top of cell | and height of table head
         var distributionv1 = 5; var distributionv2 = 20;
 
+        /// add table head and cell borders
         distributionItem.AddItem(new StringItem()
         {
             Mode = ItemMode.Static,
@@ -498,8 +549,10 @@ internal class TExamOverview : DocumentTemplate
 
         for (var i = 0; i < info.Distributions.Length; i++)
         {
+            /// add table row for each grade value
             var distributionItemI = new TemplateItemCollection(ItemMode.Dynamic, 0, 0, 0);
 
+            /// calculate height of pupil-string cell
             nextv = Extensions.RoundToNextTen(
             [
                 new TextMeasurements(
@@ -511,12 +564,14 @@ internal class TExamOverview : DocumentTemplate
                         new XPoint(330, 800)
                 )).MeasureText()
             ]);
+            /// add another 10 pt min distance
             nextv += 10;
 
+            /// add cell values for this row
             distributionItemI.AddItem(new StringItem()
             {
                 Mode = ItemMode.Static,
-                Content = $"{i+1}",
+                Content = $"{i + 1}",
                 DistanceLeft = distributionh1 + 25,
                 DistanceTop = distributionv1,
                 MaxWidth = 100,
@@ -549,6 +604,8 @@ internal class TExamOverview : DocumentTemplate
                 PenIndex = 0,
                 Underline = false
             });
+
+            /// add layout of row | cell borders
             distributionItemI.AddItem(GeometryHelper.Line(
                 ItemMode.Static,
                 [
