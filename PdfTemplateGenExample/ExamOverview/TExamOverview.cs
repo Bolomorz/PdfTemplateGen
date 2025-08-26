@@ -5,6 +5,12 @@ using PdfTemplateGen;
 
 namespace PdfTemplateGenExample.ExamOverview;
 
+
+/// 
+/// this file defines an example template depicting an exam overview
+/// the types for exam and grades are defined in 'ExamObjects.cs'
+/// 
+
 /// <summary>
 /// overview of an exam:
 /// <para>- info about exam</para>
@@ -39,7 +45,8 @@ internal class TExamOverview : DocumentTemplate
             "ExamOverview",
             FileType.Document,
             PdfSharp.PageOrientation.Portrait,
-            new(){
+            new()
+            {
                 A4PortraitSettings = new(),
                 A4LandscapeSettings = new()
             },

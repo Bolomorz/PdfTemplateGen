@@ -2,6 +2,19 @@ using PdfTemplateGen.DocumentTemplates;
 
 namespace PdfTemplateGenExample.ExamOverview;
 
+/// <summary>
+/// <para>exam overview</para>
+/// 
+/// <para>for this exam overview, independent (independent from PdfTemplateGen) types ('ExamObjects.cs') have been created to simulate an exam with grades</para>
+/// 
+/// <para>the template defined in 'TExamOverview.cs' takes objects of those independent types as parameters</para>
+/// 
+/// <para>in the print method, objects of those types are dynamically created to showcase:</para>
+/// <para>-   the types themself are independent from the generator</para>
+/// <para>-   the objects themself can be dynamic</para>
+/// <para>-   the template can be defined to take any independent type and display its data dynamically</para>
+/// <para>-   the created file for this example is 'ExamOverviewExample.pdf'</para>
+/// </summary>
 internal static class ExamOverviewExample
 {
     internal static void Print()

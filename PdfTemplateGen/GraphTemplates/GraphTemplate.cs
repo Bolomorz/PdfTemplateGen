@@ -20,7 +20,7 @@ public abstract class GraphTemplate
     /// <param name="verticalDirection">direction of y-axis | FromTopToBot: x-axis is on top | FromBotToTop: x-axis is bottom</param>
     /// <param name="horizontalDirection">direction of x-axis | FromLeftToRight: y-axis is left | FromRightToLeft: y-axis is right</param>
     /// <returns>position on graph | returns null if position outside of graph-area</returns>
-    protected (double VerticalPosition, double HorizontalPosition)? TranslateSeriesPointToChartPoint
+    protected (double VerticalMagnitude, double HorizontalMagnitude)? TranslateSeriesPointToChartPoint
     (
         double seriesVerticalPosition,
         double seriesHorizontalPosition,
@@ -43,17 +43,19 @@ public abstract class GraphTemplate
         if (positiveHorizontalDirection ? seriesHorizontalPosition < seriesHorizontalStart : seriesHorizontalPosition > seriesHorizontalStart) return null;
         if (positiveHorizontalDirection ? seriesHorizontalPosition > seriesHorizontalEnd : seriesHorizontalPosition < seriesHorizontalEnd) return null;
 
+        var verticalLength = GraphArea.VerticalEnd - GraphArea.VerticalStart;
         var verticalPercent = (seriesVerticalPosition - seriesVerticalStart) / (seriesVerticalEnd - seriesVerticalStart);
-        var verticalOffset = (GraphArea.VerticalEnd - GraphArea.VerticalStart) * verticalPercent;
+        var verticalOffset = verticalLength * verticalPercent;
         var chartVerticalPosition = verticalDirection == VerticalDirection.FromBotToTop ?
-            (positiveVerticalDirection ? GraphArea.VerticalEnd - verticalOffset : GraphArea.VerticalStart + verticalOffset) :
-            (positiveVerticalDirection ? GraphArea.VerticalStart + verticalOffset : GraphArea.VerticalEnd - verticalOffset);
+            (positiveVerticalDirection ? verticalLength - verticalOffset : verticalOffset) :
+            (positiveVerticalDirection ? verticalOffset : verticalLength - verticalOffset);
 
+        var horizontalLength = GraphArea.HorizontalEnd - GraphArea.HorizontalStart;
         var horizontalPercent = (seriesHorizontalPosition - seriesHorizontalStart) / (seriesHorizontalEnd - seriesHorizontalStart);
-        var horizontalOffset = (GraphArea.HorizontalEnd - GraphArea.HorizontalStart) * horizontalPercent;
+        var horizontalOffset = horizontalLength * horizontalPercent;
         var chartHorizontalPosition = horizontalDirection == HorizontalDirection.FromLeftToRight ?
-            (positiveHorizontalDirection ? GraphArea.HorizontalStart + horizontalOffset : GraphArea.HorizontalEnd - horizontalOffset) :
-            (positiveHorizontalDirection ? GraphArea.HorizontalEnd - horizontalOffset : GraphArea.HorizontalStart + horizontalOffset);
+            (positiveHorizontalDirection ? horizontalOffset : horizontalLength - horizontalOffset) :
+            (positiveHorizontalDirection ? horizontalLength - horizontalOffset : horizontalOffset);
 
         return (chartVerticalPosition, chartHorizontalPosition);
     }

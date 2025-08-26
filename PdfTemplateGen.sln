@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfTemplateGen", "PdfTempla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfTemplateGenExample", "PdfTemplateGenExample\PdfTemplateGenExample.csproj", "{BDFE11A0-3614-45FB-A768-76B3128C2221}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfTemplateGenBlueprints", "PdfTemplateGenBlueprints\PdfTemplateGenBlueprints.csproj", "{DA7680DC-A95D-4B6D-BC54-4015D316E2C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{BDFE11A0-3614-45FB-A768-76B3128C2221}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDFE11A0-3614-45FB-A768-76B3128C2221}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDFE11A0-3614-45FB-A768-76B3128C2221}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA7680DC-A95D-4B6D-BC54-4015D316E2C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA7680DC-A95D-4B6D-BC54-4015D316E2C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA7680DC-A95D-4B6D-BC54-4015D316E2C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA7680DC-A95D-4B6D-BC54-4015D316E2C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

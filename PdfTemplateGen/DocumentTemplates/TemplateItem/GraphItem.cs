@@ -55,14 +55,14 @@ public class GraphItem : ITemplateItem
                 Bottom = verticalstart + Height,
                 Left = horizontalstart,
                 Right = horizontalstart + Width
-            }
+            },
         };
 
         if(Mode == ItemMode.Dynamic) drawinfo.LastHorizontalPosition = Info.Rect.Right;
     }
     internal override void AdjustNewPage(double verticalstart)
     {
-        if(Info is null) return;
+        if (Info is null) return;
 
         double h = Info.Rect.Bottom - Info.Rect.Top;
         Info.Rect.Top = verticalstart + DistanceTop;

@@ -1,5 +1,11 @@
 namespace PdfTemplateGenExample.ExamOverview;
 
+/// 
+/// this file defines types for the example template 'ExamOverview'
+/// 
+/// these types and resulting objects are independent from PdfTemplateGen-project
+/// 
+
 internal class Exam
 {
     internal required string Description { get; set; }
@@ -29,11 +35,11 @@ internal class Exam
             switch (GetGrade(grade))
             {
                 case 1: info.Distributions[0].Amount++; info.AmountTotal++; sum += 1; info.Distributions[0].PupilString += $" {grade.Pupil} |"; break;
-                case 2: info.Distributions[1].Amount++; info.AmountTotal++; sum += 2; info.Distributions[1].PupilString  += $" {grade.Pupil} |"; break;
-                case 3: info.Distributions[2].Amount++; info.AmountTotal++; sum += 3; info.Distributions[2].PupilString  += $" {grade.Pupil} |"; break;
-                case 4: info.Distributions[3].Amount++; info.AmountTotal++; sum += 4; info.Distributions[3].PupilString  += $" {grade.Pupil} |"; break;
-                case 5: info.Distributions[4].Amount++; info.AmountTotal++; sum += 5; info.Distributions[4].PupilString  += $" {grade.Pupil} |"; break;
-                case 6: info.Distributions[5].Amount++; info.AmountTotal++; sum += 6; info.Distributions[5].PupilString  += $" {grade.Pupil} |"; break;
+                case 2: info.Distributions[1].Amount++; info.AmountTotal++; sum += 2; info.Distributions[1].PupilString += $" {grade.Pupil} |"; break;
+                case 3: info.Distributions[2].Amount++; info.AmountTotal++; sum += 3; info.Distributions[2].PupilString += $" {grade.Pupil} |"; break;
+                case 4: info.Distributions[3].Amount++; info.AmountTotal++; sum += 4; info.Distributions[3].PupilString += $" {grade.Pupil} |"; break;
+                case 5: info.Distributions[4].Amount++; info.AmountTotal++; sum += 5; info.Distributions[4].PupilString += $" {grade.Pupil} |"; break;
+                case 6: info.Distributions[5].Amount++; info.AmountTotal++; sum += 6; info.Distributions[5].PupilString += $" {grade.Pupil} |"; break;
             }
         }
 

@@ -3,6 +3,11 @@ using PdfTemplateGen.GraphTemplates;
 
 namespace PdfTemplateGenExample.ExamOverview;
 
+/// 
+/// this file defines an example template depicting a grade distribution
+/// the types for exam and grades are defined in 'ExamObjects.cs'
+/// 
+
 /// <summary>
 /// graph-template depicting a grade distribution of exam as bar graph
 /// </summary>
@@ -52,23 +57,50 @@ internal class TGradeDistribution : GraphTemplate
         List<Grade> grades
     )
     {
+        /// defining settings
+        /// 
+        /// width and height of axis area | distance of y/x-axes to border
+        /// these definitions are non-commital, they are to be used in FillItems()
         Settings = new()
         {
-            AxisAreaLength = 20
+            AxisAreaLength = 20    
         };
+
+        /// defining the graph area
+        /// 
+        /// positional definitions are non-commital, they are to be used in FillItems() as borders
+        /// 
+        /// color definitions define the whole graph area, as background/border color
+        /// 
+        /// positional definitions should be used to define location of y/x-axes or borders of graph:
+        ///     -   x-axes: top or bottom
+        ///     -   y-axes: left or right
+        /// here the following is defined
+        ///     vertical:   - start from the very top
+        ///                 - goes to bottom with distanceToBot=Settings.AxisAreaLength
+        ///                 -> x-axis is at the bottom
+        ///     horizontal: - start from the left with distanceToLeft=Settings.AxisAreaLength
+        ///                 - goes to the very right
+        ///                 -> y-axis is on the left
         GraphArea = new()
         {
-            VerticalStart = verticalPosition,
-            VerticalEnd = verticalPosition + verticalLength - Settings.AxisAreaLength,
-            HorizontalStart = horizontalPosition + Settings.AxisAreaLength,
-            HorizontalEnd = horizontalPosition + horizontalLength,
-            Pen = XPens.AliceBlue,
-            Brush = XBrushes.AliceBlue
+            VerticalStart = verticalPosition,                                               
+            VerticalEnd = verticalPosition + verticalLength - Settings.AxisAreaLength,      
+            HorizontalStart = horizontalPosition + Settings.AxisAreaLength,                 
+            HorizontalEnd = horizontalPosition + horizontalLength,                            
+            Pen = XPens.AliceBlue,                                                          
+            Brush = XBrushes.AliceBlue                                                     
         };
+
+        /// defining the graph data
+        /// 
+        /// lists for use in FillItems() are automatically created
         GraphData = new()
         {
             TGraphArea = GraphArea
         };
+
+
         Grades = grades;
         Exam = exam;
     }
@@ -79,41 +111,32 @@ internal class TGradeDistribution : GraphTemplate
 
         #region axes
         /// add line for y-axis: percent distribution per grade [0, 100]
+        /// congruent with definition for GraphArea, y-axis is on the left of graph area
         GraphData.Lines.Add(new()
         {
             VerticalStart = GraphArea.VerticalStart,
             VerticalEnd = GraphArea.VerticalEnd,
-            HorizontalStart = Settings.AxisAreaLength,
-            HorizontalEnd = Settings.AxisAreaLength,
+            HorizontalStart = GraphArea.HorizontalStart,
+            HorizontalEnd = GraphArea.HorizontalStart,
             Pen = XPens.Black
         });
 
         /// add line for x-axis: grade [1, 6]
+        /// congruent with definition for GraphArea, x-axis is at the bottom of graph area
         GraphData.Lines.Add(new()
         {
             VerticalStart = GraphArea.VerticalEnd,
             VerticalEnd = GraphArea.VerticalEnd,
-            HorizontalStart = Settings.AxisAreaLength,
+            HorizontalStart = GraphArea.HorizontalStart,
             HorizontalEnd = GraphArea.HorizontalEnd,
             Pen = XPens.Black
         });
         #endregion
 
-        #region calc dimensions
-        /// calc dimensions for x-interval
-        /// width-interval are known, as there are 6 Grades, each with the same distance
-        var totalWidth = GraphArea.HorizontalEnd - GraphArea.HorizontalStart;
-        var intervalWidth = totalWidth / (info.Distributions.Length + 1);       /// increment in horizontal direction
-
-        var horizontalPosition = Settings.AxisAreaLength + intervalWidth;       /// horizontal startposition
-
-        /// because the magnitudes of y-values is unknown (anything between [0, 100]), the y-value of each distribution has to be translated/calculated
-        #endregion
-
         #region bar graph
         for (int i = 0; i < info.Distributions.Length; i++)
         {
-            /// translate (i, percenti) to chartpoint | calculate magnitude of y-value
+            /// translate (i, percenti) to chartpoint | calculate position of y-value
             var percent = (info.Distributions[i].Amount / info.AmountTotal) * 100;
             var point = TranslateSeriesPointToChartPoint(
                 percent,                            /// | y-value
@@ -127,42 +150,46 @@ internal class TGradeDistribution : GraphTemplate
                 (info.Distributions.Length + 1),    /// | x-axis | from 0 to 7 | with direction from left towards right
                 HorizontalDirection.FromLeftToRight /// |
             );
+            /// the translated point is positioned relative to GraphArea and needs to be further modified 
+            /// VerticalPosition = GraphArea.VerticalStart + point.Value.VerticalMagnitude
+            /// HorizontalPosition = GraphArea.HorizontalStart + point.Value.HorizontalMagnitude
 
-            /// add bar graph according to magnitude of y-value
+            /// add bar graph according to position of y-value
             if (point is not null)
             {
-                GraphData.Texts.Add(new()           /// y-value in percent
+                /// y-value as text in percent | at the top of bar graph
+                GraphData.Texts.Add(new()
                 {
-                    VerticalPosition = point.Value.VerticalPosition,
-                    HorizontalPosition = horizontalPosition,
+                    VerticalPosition = GraphArea.VerticalStart + point.Value.VerticalMagnitude,
+                    HorizontalPosition = GraphArea.HorizontalStart + point.Value.HorizontalMagnitude,
                     Content = $"{Math.Round(percent, 2)} %",
                     Font = ChartFont,
                     Brush = XBrushes.Black,
                     Rotate = null
                 });
 
-                GraphData.Rectangles.Add(new()      /// bar graph 
+                /// bar graph as rectangle | from translated point-position to x-axis
+                GraphData.Rectangles.Add(new() 
                 {
-                    VerticalStart = point.Value.VerticalPosition,
+                    VerticalStart = GraphArea.VerticalStart + point.Value.VerticalMagnitude,
                     VerticalEnd = GraphArea.VerticalEnd,
-                    HorizontalStart = horizontalPosition - 15,
-                    HorizontalEnd = horizontalPosition + 15,
+                    HorizontalStart = GraphArea.HorizontalStart + point.Value.HorizontalMagnitude - 15,
+                    HorizontalEnd = GraphArea.HorizontalStart + point.Value.HorizontalMagnitude + 15,
                     Pen = XPens.LightGreen,
                     Brush = XBrushes.LightGreen
                 });
 
-                GraphData.Texts.Add(new()           /// x-axis description | grade value
+                /// x-axis description | grade value | below x-axis
+                GraphData.Texts.Add(new() 
                 {
                     VerticalPosition = GraphArea.VerticalEnd + Settings.AxisAreaLength / 2,
-                    HorizontalPosition = horizontalPosition,
-                    Content = $"{i+1}",
+                    HorizontalPosition = GraphArea.HorizontalStart + point.Value.HorizontalMagnitude,
+                    Content = $"{i + 1}",
                     Font = ChartFont,
                     Brush = XBrushes.Black,
                     Rotate = null
                 });
             }
-
-            horizontalPosition += intervalWidth;
         }
         #endregion
 
