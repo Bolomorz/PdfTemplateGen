@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jHPnuLQT/1fQjgo0wom2ib0wuFhGEyCN22W6NqOzG7NwHTELQv+WJFihEwgy+B+ZvTzO6P89eRYhNS+BJ1GZcg==",
+  "dgSpecHash": "bPqDir1bD6U=",
   "success": true,
   "projectFilePath": "/mnt/5581091c-1180-4d63-aa70-7acec0a858a2/Repositories/PdfTemplateGen/PdfTemplateGen/PdfTemplateGen.csproj",
   "expectedPackageFiles": [
@@ -11,7 +11,9 @@
     "/home/bolomorz/.nuget/packages/microsoft.extensions.options/8.0.2/microsoft.extensions.options.8.0.2.nupkg.sha512",
     "/home/bolomorz/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "/home/bolomorz/.nuget/packages/pdfsharp/6.2.1/pdfsharp.6.2.1.nupkg.sha512",
-    "/home/bolomorz/.nuget/packages/system.security.cryptography.pkcs/8.0.1/system.security.cryptography.pkcs.8.0.1.nupkg.sha512"
+    "/home/bolomorz/.nuget/packages/system.security.cryptography.pkcs/8.0.1/system.security.cryptography.pkcs.8.0.1.nupkg.sha512",
+    "/home/bolomorz/.nuget/packages/microsoft.netcore.app.ref/8.0.20/microsoft.netcore.app.ref.8.0.20.nupkg.sha512",
+    "/home/bolomorz/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.20/microsoft.aspnetcore.app.ref.8.0.20.nupkg.sha512"
   ],
   "logs": []
 }

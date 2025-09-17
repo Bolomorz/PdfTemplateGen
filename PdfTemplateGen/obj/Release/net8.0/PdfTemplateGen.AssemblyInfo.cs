@@ -11,7 +11,7 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("Bolomorz")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("0.0.1.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.1+5ad1d3357a6205ec61bcd1ddb60a705d64ce28a6")]
 [assembly: System.Reflection.AssemblyProductAttribute("PdfTemplateGen")]
