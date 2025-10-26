@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Bolomorz")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("0.0.1.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.1+5ad1d3357a6205ec61bcd1ddb60a705d64ce28a6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.1+59fc5d513a27fdd669aa0b149d2c897071080a52")]
 [assembly: System.Reflection.AssemblyProductAttribute("PdfTemplateGen")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PdfTemplateGen")]
 [assembly: System.Reflection.AssemblyVersionAttribute("0.0.1.0")]
