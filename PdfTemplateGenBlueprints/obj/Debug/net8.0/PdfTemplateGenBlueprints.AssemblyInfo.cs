@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PdfTemplateGenBlueprints")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+59fc5d513a27fdd669aa0b149d2c897071080a52")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+48d2c221eaf6afc994989621e5b78c5416425dce")]
 [assembly: System.Reflection.AssemblyProductAttribute("PdfTemplateGenBlueprints")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PdfTemplateGenBlueprints")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
